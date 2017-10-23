@@ -4,7 +4,7 @@ import styled from "styled-components";
 import questions from "./../data/questions";
 
 import Button from "./Button";
-import SingleChoice from "./SingleChoice";
+import SingleAnswer from "./SingleAnswer";
 
 class TestView extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class TestView extends Component {
     return (
       <div>
         <h1>Hello</h1>
-        <SingleChoice
+        <SingleAnswer
           questionsData={questions[0]}
           indexKey="0"
           onAnswer={this.handleAnswer}

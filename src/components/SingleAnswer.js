@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import StyledCheckBox from "./StyledCheckBox";
 
-class SingleChoice extends Component {
+class SingleAnswer extends Component {
   constructor(props) {
     super(props);
     var data = props.questionsData;
@@ -56,4 +56,4 @@ class SingleChoice extends Component {
   }
 }
 
-export default SingleChoice;
+export default SingleAnswer;
