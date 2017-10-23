@@ -5,6 +5,7 @@ import questions from "./../data/questions";
 
 import Button from "./Button";
 import SingleAnswer from "./SingleAnswer";
+import MultipleAnswers from "./MultipleAnswers";
 
 class TestView extends Component {
   constructor(props) {
@@ -28,6 +29,11 @@ class TestView extends Component {
         <SingleAnswer
           questionsData={questions[0]}
           indexKey="0"
+          onAnswer={this.handleAnswer}
+        />
+        <MultipleAnswers
+          questionsData={questions[1]}
+          indexKey="1"
           onAnswer={this.handleAnswer}
         />
       </div>
