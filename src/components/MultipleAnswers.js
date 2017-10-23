@@ -12,6 +12,9 @@ class MultipleAnswers extends Component {
     };
     this.question = data.question;
     this.options = data.options;
+    this.options.sort(function() {
+      return 0.5 - Math.random();
+    });
     this.index = parseInt(props.indexKey, 10);
     this.onAnswer = props.onAnswer;
   }
