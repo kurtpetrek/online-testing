@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import LandingView from './components/LandingView';
+import TestView from './components/TestView';
 
 class App extends Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class App extends Component {
         <LandingView handleTestStart={this.onTestStart}></LandingView>
       );
     } else if (this.state.view === "TestView") {
-      return null;
+      return <TestView />;
     }
   }
 }

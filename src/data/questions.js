@@ -11,3 +11,5 @@ const questions = [
     answer: '<h1> Hello Wold </h1>'
   }
 ];
+
+export default questions;
