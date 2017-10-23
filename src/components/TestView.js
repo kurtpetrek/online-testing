@@ -13,6 +13,7 @@ class TestView extends Component {
     this.state = {
       answers: []
     };
+    this.handleTestFinish = props.handleTestFinish;
   }
 
   handleAnswer = (value, index) => {
@@ -20,6 +21,26 @@ class TestView extends Component {
       prevState.answers[index] = value;
       return prevState;
     });
+  };
+
+  gradeTest = () => {
+    let score = 0;
+    questions.forEach((val, i, a) => {
+      const answer = val.answer;
+      const tester = this.state.answers[i];
+      if (typeof answer === "string" && tester == answer) {
+        console.log("correct");
+        score++;
+      } else if (Array.isArray(answer) && Array.isArray(tester)) {
+        answer.sort();
+        tester.sort();
+        if (answer.join("") === tester.join("")) {
+          score++;
+          console.log("matched!");
+        }
+      }
+    });
+    this.handleTestFinish(score);
   };
 
   render() {
@@ -36,6 +57,7 @@ class TestView extends Component {
           indexKey="1"
           onAnswer={this.handleAnswer}
         />
+        <Button onClick={this.gradeTest}>Submit</Button>
       </div>
     );
   }
