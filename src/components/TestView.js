@@ -49,19 +49,30 @@ class TestView extends Component {
   };
 
   render() {
+    const testQuestions = questions.map((val, i) => {
+      if (val.type === "SINGLE ANSWER") {
+        return (
+          <SingleAnswer
+            questionsData={val}
+            indexKey={i}
+            onAnswer={this.handleAnswer}
+            key={val.question}
+          />
+        );
+      } else if (val.type === "MULTIPLE ANSWERS") {
+        return (
+          <MultipleAnswers
+            questionsData={val}
+            indexKey={i}
+            onAnswer={this.handleAnswer}
+            key={val.question}
+          />
+        );
+      }
+    });
     return (
       <div>
-        <h1>Hello</h1>
-        <SingleAnswer
-          questionsData={questions[0]}
-          indexKey="0"
-          onAnswer={this.handleAnswer}
-        />
-        <MultipleAnswers
-          questionsData={questions[1]}
-          indexKey="1"
-          onAnswer={this.handleAnswer}
-        />
+        {testQuestions}
         <Button onClick={this.gradeTest}>Submit</Button>
       </div>
     );

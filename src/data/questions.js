@@ -15,6 +15,23 @@ const questions = [
     question: "What are the direct children of the HTML Element?",
     options: ["<head>", "<body>", "<title>", "<div>"],
     answer: ["<body>", "<head>"]
+  },
+  {
+    type: "MULTIPLE ANSWERS",
+    question: "Select all valid CSS Selectors",
+    options: ["p", ".container", "#about-page", "a:hover"],
+    answer: ["p", ".container", "#about-page", "a:hover"]
+  },
+  {
+    type: "SINGLE ANSWER",
+    question: "What does HTML stand for?",
+    options: [
+      "Hyper Templates Made Logically",
+      "Hyper Text Markup Language",
+      "Hyper Text Mad Logically",
+      "Hidden Text Made Language"
+    ],
+    answer: "Hyper Text Markup Language"
   }
 ];
 
