@@ -34,7 +34,7 @@ class App extends Component {
     } else if (this.state.view === "TestView") {
       return <TestView handleTestFinish={this.onTestFinish} />;
     } else if (this.state.view === "FinishView") {
-      return <FinishView score={this.state.results} maxScore={4} />;
+      return <FinishView score={this.state.results} maxScore={5} />;
     }
   }
 }
