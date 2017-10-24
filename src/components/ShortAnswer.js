@@ -6,6 +6,7 @@ const ShortAnswerContainer = styled.div`
     width: 100%;
     font-size: 1.1rem;
     line-height: 1.5;
+    padding: 0.2rem;
   }
 `;
 
@@ -25,8 +26,12 @@ class ShortAnswer extends Component {
   render() {
     return (
       <ShortAnswerContainer>
-        <h3>{this.questionData.question}</h3>
-        <input type="text" onChange={this.handleInput} />
+        <h2>{this.questionData.question}</h2>
+        <input
+          type="text"
+          onChange={this.handleInput}
+          placeholder="Enter answer here"
+        />
       </ShortAnswerContainer>
     );
   }

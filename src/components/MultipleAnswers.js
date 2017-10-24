@@ -65,7 +65,7 @@ class MultipleAnswers extends Component {
 
     return (
       <div>
-        <h3>{this.question}</h3>
+        <h2>{this.question}</h2>
         {options}
       </div>
     );
