@@ -7,11 +7,34 @@ import Button from "./Button";
 import SingleAnswer from "./SingleAnswer";
 import MultipleAnswers from "./MultipleAnswers";
 
+const TestContainer = styled.div`
+  width: 95%;
+  max-width: 700px;
+  padding: 1rem;
+  margin: auto;
+
+  & > div {
+    border-bottom: 2px solid #666;
+    margin: 1rem 0;
+    padding: 1rem 0;
+  }
+
+  .button-container {
+    text-align: right;
+    border-bottom: none;
+
+    h3 {
+      color: #e8453c;
+    }
+  }
+`;
+
 class TestView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      answers: []
+      answers: [],
+      warningMessage: ""
     };
     this.handleTestFinish = props.handleTestFinish;
   }
@@ -32,7 +55,7 @@ class TestView extends Component {
       questions.forEach((val, i, a) => {
         const answer = val.answer;
         const tester = this.state.answers[i];
-        if (typeof answer === "string" && tester == answer) {
+        if (typeof answer === "string" && tester === answer) {
           score++;
         } else if (Array.isArray(answer) && Array.isArray(tester)) {
           answer.sort();
@@ -43,6 +66,22 @@ class TestView extends Component {
         }
       });
       this.handleTestFinish(score);
+    } else {
+      this.setState(
+        prevState => {
+          prevState.warningMessage = "Please answer all questions.";
+          return prevState;
+        },
+        () => {
+          setTimeout(() => {
+            console.log("foo");
+            this.setState(prevState => {
+              prevState.warningMessage = "";
+              return prevState;
+            });
+          }, 2000);
+        }
+      );
     }
   };
 
@@ -66,13 +105,22 @@ class TestView extends Component {
             key={val.question}
           />
         );
+      } else {
+        return null;
       }
     });
+
+    const warningMessage = this.state.warningMessage;
+
     return (
-      <div>
+      <TestContainer>
         {testQuestions}
-        <Button onClick={this.gradeTest}>Submit</Button>
-      </div>
+        <div className="button-container">
+          <h3>{warningMessage}</h3>
+          <p>Be sure to check your answers before submitting.</p>
+          <Button onClick={this.gradeTest}>Submit</Button>
+        </div>
+      </TestContainer>
     );
   }
 }
