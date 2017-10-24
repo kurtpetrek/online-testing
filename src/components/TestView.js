@@ -33,14 +33,12 @@ class TestView extends Component {
         const answer = val.answer;
         const tester = this.state.answers[i];
         if (typeof answer === "string" && tester == answer) {
-          console.log("correct");
           score++;
         } else if (Array.isArray(answer) && Array.isArray(tester)) {
           answer.sort();
           tester.sort();
           if (answer.join("") === tester.join("")) {
             score++;
-            console.log("matched!");
           }
         }
       });
