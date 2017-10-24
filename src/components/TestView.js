@@ -75,7 +75,6 @@ class TestView extends Component {
         },
         () => {
           setTimeout(() => {
-            console.log("foo");
             this.setState(prevState => {
               prevState.warningMessage = "";
               return prevState;
