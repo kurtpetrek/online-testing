@@ -24,23 +24,28 @@ class TestView extends Component {
   };
 
   gradeTest = () => {
-    let score = 0;
-    questions.forEach((val, i, a) => {
-      const answer = val.answer;
-      const tester = this.state.answers[i];
-      if (typeof answer === "string" && tester == answer) {
-        console.log("correct");
-        score++;
-      } else if (Array.isArray(answer) && Array.isArray(tester)) {
-        answer.sort();
-        tester.sort();
-        if (answer.join("") === tester.join("")) {
+    if (
+      this.state.answers.length === questions.length &&
+      !this.state.answers.includes(undefined)
+    ) {
+      let score = 0;
+      questions.forEach((val, i, a) => {
+        const answer = val.answer;
+        const tester = this.state.answers[i];
+        if (typeof answer === "string" && tester == answer) {
+          console.log("correct");
           score++;
-          console.log("matched!");
+        } else if (Array.isArray(answer) && Array.isArray(tester)) {
+          answer.sort();
+          tester.sort();
+          if (answer.join("") === tester.join("")) {
+            score++;
+            console.log("matched!");
+          }
         }
-      }
-    });
-    this.handleTestFinish(score);
+      });
+      this.handleTestFinish(score);
+    }
   };
 
   render() {
