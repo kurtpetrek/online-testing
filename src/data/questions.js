@@ -28,7 +28,7 @@ const questions = [
     options: [
       "Hyper Templates Made Logically",
       "Hyper Text Markup Language",
-      "Hyper Text Mad Logically",
+      "Hyper Text Markup Logically",
       "Hidden Text Made Language"
     ],
     answer: "Hyper Text Markup Language"
