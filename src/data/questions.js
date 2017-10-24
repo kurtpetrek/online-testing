@@ -1,14 +1,19 @@
 const questions = [
   {
+    type: "SHORT ANSWER",
+    question: "Create a h1 element that says Project Code.",
+    answer: "<h1>Project Code</h1>"
+  },
+  {
     type: "SINGLE ANSWER",
     question: "Which of the following is valid HTML?",
     options: [
-      "<h1 Hello Wold h1>",
-      "<h1> Hello Wold <h1>",
-      "<h1> Hello Wold /h1>",
-      "<h1> Hello Wold </h1>"
+      "<p Hello Wold p>",
+      "<p> Hello Wold <p>",
+      "<p> Hello Wold /p>",
+      "<p> Hello Wold </p>"
     ],
-    answer: "<h1> Hello Wold </h1>"
+    answer: "<p> Hello Wold </p>"
   },
   {
     type: "MULTIPLE ANSWERS",

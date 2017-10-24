@@ -6,6 +6,7 @@ import questions from "./../data/questions";
 import Button from "./Button";
 import SingleAnswer from "./SingleAnswer";
 import MultipleAnswers from "./MultipleAnswers";
+import ShortAnswer from "./ShortAnswer";
 
 const TestContainer = styled.div`
   width: 95%;
@@ -100,6 +101,15 @@ class TestView extends Component {
         return (
           <MultipleAnswers
             questionsData={val}
+            indexKey={i}
+            onAnswer={this.handleAnswer}
+            key={val.question}
+          />
+        );
+      } else if (val.type === "SHORT ANSWER") {
+        return (
+          <ShortAnswer
+            questionData={val}
             indexKey={i}
             onAnswer={this.handleAnswer}
             key={val.question}
