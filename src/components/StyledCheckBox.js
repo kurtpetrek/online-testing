@@ -46,6 +46,7 @@ export default function StyledCheckBox(props) {
     disabled = true;
     spanStyles.opacity = 0.75;
   }
+
   return (
     <BlockLabel>
       <input
@@ -53,12 +54,17 @@ export default function StyledCheckBox(props) {
         disabled={disabled}
         value={props.value}
         checked={props.checked}
-        onChange={props.handleInput}
+        onChange={() => {
+          props.handleInput(props.value);
+        }}
       />
       <span
         tabIndex="0"
         role="button"
-        onKeyPress={props.handleInput}
+        value={props.value}
+        onKeyPress={() => {
+          props.handleInput(props.value);
+        }}
         style={spanStyles}
       >
         {props.children}

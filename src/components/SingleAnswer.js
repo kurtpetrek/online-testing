@@ -18,8 +18,8 @@ class SingleAnswer extends Component {
     this.onAnswer = props.onAnswer;
   }
 
-  onOptionClick = e => {
-    const answer = e.target.value;
+  onOptionClick = val => {
+    const answer = val;
     this.setState(
       prevState => {
         prevState.answer = answer;

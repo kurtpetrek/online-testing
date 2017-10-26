@@ -18,8 +18,8 @@ class MultipleAnswers extends Component {
     this.onAnswer = props.onAnswer;
   }
 
-  onOptionClick = e => {
-    const answer = e.target.value;
+  onOptionClick = val => {
+    const answer = val;
 
     if (!this.state.answer.includes(answer)) {
       this.setState(
