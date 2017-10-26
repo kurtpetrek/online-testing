@@ -14,6 +14,7 @@ const BlockLabel = styled.label`
   span {
     display: block;
     padding-left: 50px;
+    transition: 0.25s;
     &::before {
       content: "";
       position: absolute;
@@ -27,7 +28,7 @@ const BlockLabel = styled.label`
 
     &:focus {
       outline: none;
-      font-size: 1.4rem;
+      padding-left: 60px;
     }
   }
   input:checked + span {
