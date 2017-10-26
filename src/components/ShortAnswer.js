@@ -7,6 +7,14 @@ const ShortAnswerContainer = styled.div`
     font-size: 1.1rem;
     line-height: 1.5;
     padding: 0.2rem;
+
+    &::placeholder {
+      transition: 0.25s;
+    }
+
+    &:focus::placeholder {
+      opacity: 0;
+    }
   }
 `;
 
