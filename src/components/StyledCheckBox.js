@@ -24,6 +24,11 @@ const BlockLabel = styled.label`
       top: 5px;
       transition: 0.25s;
     }
+
+    &:focus {
+      outline: none;
+      font-size: 1.4rem;
+    }
   }
   input:checked + span {
     font-size: 1.4rem;
